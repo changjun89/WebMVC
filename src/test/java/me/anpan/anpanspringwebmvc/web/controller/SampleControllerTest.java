@@ -1,5 +1,7 @@
 package me.anpan.anpanspringwebmvc.web.controller;
 
+import me.anpan.anpanspringwebmvc.web.dto.Person;
+import me.anpan.anpanspringwebmvc.web.repository.PersonRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +22,18 @@ public class SampleControllerTest {
     @Autowired
     MockMvc mockMvc;
 
+    @Autowired
+    PersonRepository repository;
+
     @Test
     public void hello() throws Exception {
-        this.mockMvc.perform(get("/hello").param("name", "changjun"))
+
+        Person person = new Person();
+        person.setName("changjun");
+
+        Person person1 = repository.save(person);
+
+        this.mockMvc.perform(get("/hello").param("id", person1.getId()+""))
                 .andDo(print())
                 .andExpect(content().string("hello changjun"));
     }
