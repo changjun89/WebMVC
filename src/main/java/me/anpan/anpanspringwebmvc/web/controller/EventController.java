@@ -28,4 +28,9 @@ public class EventController {
         return body;
     }
 
+    @GetMapping("/hi")
+    public String hi() {
+        return "hi";
+    }
+
 }
