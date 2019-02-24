@@ -25,10 +25,10 @@ public class WebConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public Jaxb2Marshaller jaxb2Marshaller(){
+    public Jaxb2Marshaller jaxb2Marshaller() {
         Jaxb2Marshaller jaxb2Marshaller = new Jaxb2Marshaller();
         jaxb2Marshaller.setPackagesToScan(Person.class.getPackage().getName());
-        return  jaxb2Marshaller;
+        return jaxb2Marshaller;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/mobile/**").addResourceLocations("classpath:/mobile/ ","file:/usr/bin","/mobile")
+        registry.addResourceHandler("/mobile/**").addResourceLocations("classpath:/mobile/ ", "file:/usr/bin", "/mobile")
                 .setCacheControl(CacheControl.maxAge(10, TimeUnit.MINUTES));
     }
 

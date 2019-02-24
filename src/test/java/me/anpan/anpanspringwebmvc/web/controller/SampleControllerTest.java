@@ -15,9 +15,7 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import javax.xml.bind.Marshaller;
 import javax.xml.transform.stream.StreamResult;
-
 import java.io.StringWriter;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -88,7 +86,7 @@ public class SampleControllerTest {
 
         StringWriter stringWriter = new StringWriter();
         StreamResult streamResult = new StreamResult(stringWriter);
-        marshaller.marshal(person,streamResult);
+        marshaller.marshal(person, streamResult);
 
         String xmlString = stringWriter.toString();
 

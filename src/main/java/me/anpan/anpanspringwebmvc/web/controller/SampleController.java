@@ -1,7 +1,10 @@
 package me.anpan.anpanspringwebmvc.web.controller;
 
 import me.anpan.anpanspringwebmvc.web.dto.Person;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class SampleController {
@@ -17,7 +20,7 @@ public class SampleController {
 
     @GetMapping("/hello")
     public String hello(@RequestParam("id") Person person) {
-        return "hello "+person.getName();
+        return "hello " + person.getName();
     }
 
     @GetMapping("/jsonMessage")
@@ -29,8 +32,6 @@ public class SampleController {
     public Person xmlMessage(@RequestBody Person person) {
         return person;
     }
-
-
 
 
 }
